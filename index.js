@@ -742,7 +742,7 @@ function _CalendarHeader(_a) {
             var _isToday = isToday(date);
             return (React__namespace.createElement(reactNative.TouchableOpacity, { style: [u['bg-white'], u['flex-1'], u['pt-2']], onPress: function () { return _onPress(date.toDate()); }, disabled: onPressDateHeader === undefined, key: date.toString() },
                 React__namespace.createElement(reactNative.View, { style: [u['justify-between'], { height: cellHeight }] },
-                    React__namespace.createElement(reactNative.Text, { style: [guideTextStyle, _isToday && u['text-primary']] }, date.format('ddd')),
+                    React__namespace.createElement(reactNative.Text, { style: [guideTextStyle, _isToday && u['text-primary']] }, date.format('dddd')),
                     React__namespace.createElement(reactNative.View, { style: _isToday
                             ? [
                                 u['h-36'],
