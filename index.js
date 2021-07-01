@@ -331,7 +331,6 @@ function formatHour(hour, ampm) {
 }
 function formatHourEvents(hour, minute, ampm) {
     if (ampm === void 0) { ampm = false; }
-    console.log(hour, minute, ampm)
     if (ampm) {
         if (hour == 0) {
             return `12:${minute}AM`;
