@@ -331,17 +331,18 @@ function formatHour(hour, ampm) {
 }
 function formatHourEvents(hour, minute, ampm) {
     if (ampm === void 0) { ampm = false; }
+    console.log(hour, minute, ampm)
     if (ampm) {
-        if (hour === 0) {
-            return "12:" + minute + "AM";
+        if (hour == 0) {
+            return `12:${minute}AM`;
         }
-        if (hour === 12) {
-            return "12:" + minute + "PM";
+        if (hour == 12) {
+            return `12:${minute}PM`;
         }
         if (hour > 12) {
             return `${hour - 12}:${minute}PM`;
         }
-        return hour + " AM";
+        return `${hour}:${minute}AM`;
     }
     return `${hour}:00`;
 }
