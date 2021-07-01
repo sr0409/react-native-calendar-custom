@@ -7,23 +7,7 @@
   "types": "build/index.d.ts",
   "repository": "git@github.com:sr0409/react-native-calendar-custom",
   "license": "MIT",
-  "scripts": {
-    "prepare": "simple-git-hooks",
-    "storybook": "start-storybook -p 7007",
-    "build-storybook": "build-storybook -o .storybook-build",
-    "sync-rndemo": "yarn build && cp -r build rndemo",
-    "start-rndemo-ios": "yarn sync-rndemo && cd rndemo && yarn ios",
-    "start-rndemo-android": "yarn sync-rndemo && cd rndemo && yarn android",
-    "test": "jest",
-    "format": "prettier --write {src,stories}/**.{ts,tsx}",
-    "lint": "eslint --ext ts,tsx src stories",
-    "lint:fix": "yarn lint --fix",
-    "watch": "rollup -cw",
-    "prepublish": "npm run build",
-    "build": "npm-run-all build:clean build:ts",
-    "build:clean": "rimraf build/",
-    "build:ts": "env NODE_ENV=production rollup -c"
-  },
+  
   "dependencies": {
     "calendarize": "^1.1.1",
     "dayjs": "^1.10.4"
@@ -67,9 +51,6 @@
     "tslib": "^2.2.0",
     "typescript": "^3.9.9",
     "webpack-merge": "^5.7.3"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "npx lint-staged"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [
