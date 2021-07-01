@@ -1,12 +1,11 @@
 {
-  "name": "react-native-big-calendar",
+  "name": "react-native-calendar-custom",
   "version": "1.0.2",
   "main": "build/index.js",
   "jsnext:main": "build/index.es.js",
   "module": "build/index.es.js",
   "types": "build/index.d.ts",
-  "repository": "git@github.com:llotheo/react-native-big-calendar",
-  "author": "gosho-kazuya <ketsume0211@gmail.com>",
+  "repository": "git@github.com:sr0409/react-native-calendar-custom",
   "license": "MIT",
   "scripts": {
     "prepare": "simple-git-hooks",
