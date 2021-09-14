@@ -1,6 +1,6 @@
 'use strict';
 
-import {TouchableOpacity, View} from "react-native";
+import {TouchableOpacity, View, Linking} from "react-native";
 
 Object.defineProperty(exports, '__esModule', { value: true });
 import {FontAwesome5} from "@expo/vector-icons";
@@ -770,7 +770,7 @@ function _CalendarHeader(_a) {
 
                 ),
                     (React__namespace.createElement(reactNative.View, { style: [{marginRight: 7,  marginBottom: 7}, {flex: 1}, {flexDirection: 'column'}], key: "key" },
-                        <TouchableOpacity key={'somekey1'} style={[u['bg-primary'], { width: 55, height: 55, justifyContent: 'center', borderRadius: 5, alignSelf: 'flex-end', padding: 3 }]} onPress={()=>  console.log(_a)} >
+                        <TouchableOpacity key={'somekey1'} style={[u['bg-primary'], { width: 55, height: 55, justifyContent: 'center', borderRadius: 5, alignSelf: 'flex-end', padding: 3 }]} onPress={() =>  Linking.openURL(_a.mapLink)} >
                             <View key={'somekey2'} style={{height: 34}}>
                                 <FontAwesome5 key={'icon'} name={'map-marked-alt'} style={{fontSize: 32, flex: 1, flexDirection: 'column', textAlign: 'center', color: 'white'}}/>
                             </View>
