@@ -7,8 +7,9 @@ interface CalendarHeaderProps<T> {
     style: ViewStyle;
     allDayEvents: ICalendarEvent<T>[];
     isRTL: boolean;
+    mapLink: string;
     onPressDateHeader?: (date: Date) => void;
 }
-declare function _CalendarHeader<T>({ dateRange, cellHeight, style, allDayEvents, isRTL, onPressDateHeader, }: CalendarHeaderProps<T>): JSX.Element;
+declare function _CalendarHeader<T>({ dateRange, cellHeight, style, allDayEvents, isRTL, onPressDateHeader, mapLink }: CalendarHeaderProps<T>): JSX.Element;
 export declare const CalendarHeader: typeof _CalendarHeader;
 export {};

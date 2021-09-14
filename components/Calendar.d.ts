@@ -19,11 +19,12 @@ export interface CalendarProps<T> {
     onChangeDate?: DateRangeHandler;
     onPressCell?: (date: Date) => void;
     onPressDateHeader?: (date: Date) => void;
+    mapLink?: string;
     onPressEvent?: (event: ICalendarEvent<T>) => void;
     renderEvent?: EventRenderer<T>;
     weekEndsOn?: WeekNum;
     maxVisibleEventCount?: number;
 }
-declare function _Calendar<T>({ events, height, ampm, date, eventCellStyle, locale, hideNowIndicator, mode, overlapOffset, scrollOffsetMinutes, showTime, style, swipeEnabled, weekStartsOn, isRTL, onChangeDate, onPressCell, onPressDateHeader, onPressEvent, renderEvent, weekEndsOn, maxVisibleEventCount, }: CalendarProps<T>): JSX.Element;
+declare function _Calendar<T>({ events, height, ampm, date, eventCellStyle, locale, hideNowIndicator, mode, overlapOffset, scrollOffsetMinutes, showTime, style, swipeEnabled, weekStartsOn, isRTL, onChangeDate, onPressCell, onPressDateHeader, onPressEvent, renderEvent, weekEndsOn, maxVisibleEventCount}: CalendarProps<T>): JSX.Element;
 export declare const Calendar: typeof _Calendar;
 export {};

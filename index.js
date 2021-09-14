@@ -1,6 +1,6 @@
 'use strict';
 
-import {View} from "react-native";
+import {TouchableOpacity, View} from "react-native";
 
 Object.defineProperty(exports, '__esModule', { value: true });
 import {FontAwesome5} from "@expo/vector-icons";
@@ -728,7 +728,7 @@ function _CalendarBodyForMonthView(_a) {
 var CalendarBodyForMonthView = typedMemo(_CalendarBodyForMonthView);
 
 function _CalendarHeader(_a) {
-    var dateRange = _a.dateRange, cellHeight = _a.cellHeight, _b = _a.style, style = _b === void 0 ? {} : _b, allDayEvents = _a.allDayEvents, isRTL = _a.isRTL, onPressDateHeader = _a.onPressDateHeader;
+    var dateRange = _a.dateRange, cellHeight = _a.cellHeight, _b = _a.style, style = _b === void 0 ? {} : _b, allDayEvents = _a.allDayEvents, isRTL = _a.isRTL, onPressDateHeader = _a.onPressDateHeader, mapLink = _a.mapLink;
     var _onPress = React__namespace.useCallback(function (date) {
         onPressDateHeader && onPressDateHeader(date);
     }, [onPressDateHeader]);
@@ -769,12 +769,12 @@ function _CalendarHeader(_a) {
                                 ] }, date.format('D')))),
 
                 ),
-                    (React__namespace.createElement(reactNative.TouchableOpacity, { style: [{marginRight: 7,  marginBottom: 7}, {flex: 1}, {flexDirection: 'column'}], key: "key" },
-                        <View key={'somekey1'} style={[u['bg-primary'], { width: 55, height: 55, justifyContent: 'center', borderRadius: 5, alignSelf: 'flex-end', padding: 3 }]}>
+                    (React__namespace.createElement(reactNative.View, { style: [{marginRight: 7,  marginBottom: 7}, {flex: 1}, {flexDirection: 'column'}], key: "key" },
+                        <TouchableOpacity key={'somekey1'} style={[u['bg-primary'], { width: 55, height: 55, justifyContent: 'center', borderRadius: 5, alignSelf: 'flex-end', padding: 3 }]} onPress={()=>  console.log(_a)} >
                             <View key={'somekey2'} style={{height: 34}}>
                                 <FontAwesome5 key={'icon'} name={'map-marked-alt'} style={{fontSize: 32, flex: 1, flexDirection: 'column', textAlign: 'center', color: 'white'}}/>
                             </View>
-                        </View>))
+                        </TouchableOpacity>))
 
                 ));
         }),
@@ -800,7 +800,7 @@ function _CalendarHeaderForMonthView(_a) {
 var CalendarHeaderForMonthView = typedMemo(_CalendarHeaderForMonthView);
 
 function _Calendar(_a) {
-    var events = _a.events, height = _a.height, _b = _a.ampm, ampm = _b === void 0 ? false : _b, date = _a.date, eventCellStyle = _a.eventCellStyle, _c = _a.locale, locale = _c === void 0 ? 'en' : _c, _d = _a.hideNowIndicator, hideNowIndicator = _d === void 0 ? false : _d, _e = _a.mode, mode = _e === void 0 ? 'week' : _e, overlapOffset = _a.overlapOffset, _f = _a.scrollOffsetMinutes, scrollOffsetMinutes = _f === void 0 ? 0 : _f, _g = _a.showTime, showTime = _g === void 0 ? true : _g, _h = _a.style, style = _h === void 0 ? {} : _h, _j = _a.swipeEnabled, swipeEnabled = _j === void 0 ? true : _j, _k = _a.weekStartsOn, weekStartsOn = _k === void 0 ? 0 : _k, _l = _a.isRTL, isRTL = _l === void 0 ? false : _l, onChangeDate = _a.onChangeDate, onPressCell = _a.onPressCell, onPressDateHeader = _a.onPressDateHeader, onPressEvent = _a.onPressEvent, renderEvent = _a.renderEvent, _m = _a.weekEndsOn, weekEndsOn = _m === void 0 ? 6 : _m, _o = _a.maxVisibleEventCount, maxVisibleEventCount = _o === void 0 ? 3 : _o;
+    var events = _a.events, mapLink = _a.mapLink, height = _a.height, _b = _a.ampm, ampm = _b === void 0 ? false : _b, date = _a.date, eventCellStyle = _a.eventCellStyle, _c = _a.locale, locale = _c === void 0 ? 'en' : _c, _d = _a.hideNowIndicator, hideNowIndicator = _d === void 0 ? false : _d, _e = _a.mode, mode = _e === void 0 ? 'week' : _e, overlapOffset = _a.overlapOffset, _f = _a.scrollOffsetMinutes, scrollOffsetMinutes = _f === void 0 ? 0 : _f, _g = _a.showTime, showTime = _g === void 0 ? true : _g, _h = _a.style, style = _h === void 0 ? {} : _h, _j = _a.swipeEnabled, swipeEnabled = _j === void 0 ? true : _j, _k = _a.weekStartsOn, weekStartsOn = _k === void 0 ? 0 : _k, _l = _a.isRTL, isRTL = _l === void 0 ? false : _l, onChangeDate = _a.onChangeDate, onPressCell = _a.onPressCell, onPressDateHeader = _a.onPressDateHeader, onPressMapHeader = _a.onPressMapHeader, onPressEvent = _a.onPressEvent, renderEvent = _a.renderEvent, _m = _a.weekEndsOn, weekEndsOn = _m === void 0 ? 6 : _m, _o = _a.maxVisibleEventCount, maxVisibleEventCount = _o === void 0 ? 3 : _o;
     var _p = React__default['default'].useState(dayjs__default['default'](date)), targetDate = _p[0], setTargetDate = _p[1];
     React__default['default'].useEffect(function () {
         if (date) {
@@ -848,6 +848,7 @@ function _Calendar(_a) {
         style: style,
         isRTL: isRTL,
         mode: mode,
+        mapLink: mapLink
     };
     if (mode === 'month') {
         return (React__default['default'].createElement(React__default['default'].Fragment, null,
