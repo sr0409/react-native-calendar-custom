@@ -1,8 +1,9 @@
 'use strict';
 
-import {Button, Text, TouchableOpacity, View} from "react-native";
+import {View} from "react-native";
 
 Object.defineProperty(exports, '__esModule', { value: true });
+import {FontAwesome5} from "@expo/vector-icons";
 
 var dayjs = require('dayjs');
 var React = require('react');
@@ -743,9 +744,9 @@ function _CalendarHeader(_a) {
             var _isToday = isToday(date);
             return (
                 React__namespace.createElement(reactNative.View, { style: [u['bg-white'], u['pt-2'], u['flex-row'], { flex: 1 }]},
-                    React__namespace.createElement(reactNative.TouchableOpacity, { style: [u['bg-white'], u['pt-2'], u['flex-row'], {justifyContent: 'flex-end'}, { width: '50%' }], onPress: function () { return _onPress(date.toDate()); }, disabled: onPressDateHeader === undefined, key: date.toString() },
+                    React__namespace.createElement(reactNative.TouchableOpacity, { style: [u['bg-white'], u['pt-2'], u['flex-row'], {justifyContent: 'flex-end'}, { width: '50%', marginTop: -3}], onPress: function () { return _onPress(date.toDate()); }, disabled: onPressDateHeader === undefined, key: date.toString() },
                         React__namespace.createElement(reactNative.View, { style: [u['justify-between'], {paddingBottom: 6}] },
-                        React__namespace.createElement(reactNative.Text, { style: [guideTextStyle, _isToday && u['text-primary'], { borderColor: 'red'}] }, date.format('dddd')),
+                        React__namespace.createElement(reactNative.Text, { style: [guideTextStyle, _isToday && u['text-primary'], {fontWeight: 'bold'}] }, date.format('dddd')),
                         React__namespace.createElement(reactNative.View, { style: _isToday
                                 ? [
                                     u['h-36'],
@@ -768,8 +769,12 @@ function _CalendarHeader(_a) {
                                 ] }, date.format('D')))),
 
                 ),
-                    (React__namespace.createElement(reactNative.View, { style: [{width: 50}, {flex: 1}, {flexDirection: 'column'}], key: "key" },
-                        React__namespace.createElement(reactNative.Text, { style: {color: 'black', flex: 1} }, "Hi")))
+                    (React__namespace.createElement(reactNative.TouchableOpacity, { style: [{marginRight: 7,  marginBottom: 7}, {flex: 1}, {flexDirection: 'column'}], key: "key" },
+                        <View key={'somekey1'} style={[u['bg-primary'], { width: 55, height: 55, justifyContent: 'center', borderRadius: 5, alignSelf: 'flex-end', padding: 3 }]}>
+                            <View key={'somekey2'} style={{height: 34}}>
+                                <FontAwesome5 key={'icon'} name={'map-marked-alt'} style={{fontSize: 32, flex: 1, flexDirection: 'column', textAlign: 'center', color: 'white'}}/>
+                            </View>
+                        </View>))
 
                 ));
         }),
