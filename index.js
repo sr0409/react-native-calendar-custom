@@ -1,5 +1,7 @@
 'use strict';
 
+import {Button, Text, TouchableOpacity, View} from "react-native";
+
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var dayjs = require('dayjs');
@@ -734,42 +736,45 @@ function _CalendarHeader(_a) {
                 u['border-gray-100'],
                 u['bg-white'],
                 isRTL ? u['flex-row-reverse'] : u['flex-row'],
-                style,
+                style
             ] },
-        React__namespace.createElement(reactNative.View, { style: [u['bg-white'], u['z-10'], u['w-50'], u['border-b'], u['border-gray-100']] }),
+        React__namespace.createElement(reactNative.View, { style: [{maxWidth: 51}, {flexDirection: 'column', flex: 1}, u['border-r'], u['border-gray-100']] }),
         dateRange.map(function (date) {
             var _isToday = isToday(date);
-            return (React__namespace.createElement(reactNative.TouchableOpacity, { style: [u['bg-white'], u['flex-1'], u['pt-2']], onPress: function () { return _onPress(date.toDate()); }, disabled: onPressDateHeader === undefined, key: date.toString() },
-                React__namespace.createElement(reactNative.View, { style: [u['justify-between'], { height: cellHeight }] },
-                    React__namespace.createElement(reactNative.Text, { style: [guideTextStyle, _isToday && u['text-primary']] }, date.format('dddd')),
-                    React__namespace.createElement(reactNative.View, { style: _isToday
-                            ? [
-                                u['h-36'],
-                                u['w-36'],
-                                u['bg-primary'],
-                                u['pb-6'],
-                                u['rounded-full'],
-                                u['items-center'],
-                                u['justify-center'],
-                                u['self-center'],
-                                u['z-20'],
-                            ]
-                            : [u['mb-6']] },
-                        React__namespace.createElement(reactNative.Text, { style: [
-                                u['text-gray-800'],
-                                u['text-2xl'],
-                                u['text-center'],
-                                _isToday && u['text-white'],
-                                reactNative.Platform.OS === 'web' && _isToday && u['mt-6'],
-                            ] }, date.format('D')))),
-                React__namespace.createElement(reactNative.View, { style: [dateCellStyle, { height: cellHeight }] }, allDayEvents.map(function (event) {
-                    if (!dayjs__default['default'](event.start).isSame(date, 'day')) {
-                        return null;
-                    }
-                    return (React__namespace.createElement(reactNative.View, { style: commonStyles.eventCell, key: "" + event.start + event.title },
-                        React__namespace.createElement(reactNative.Text, { style: eventTitleStyle }, event.title)));
-                }))));
-        })));
+            return (
+                React__namespace.createElement(reactNative.View, { style: [u['bg-white'], u['pt-2'], u['flex-row'], { flex: 1 }]},
+                    React__namespace.createElement(reactNative.TouchableOpacity, { style: [u['bg-white'], u['pt-2'], u['flex-row'], {justifyContent: 'flex-end'}, { width: '50%' }], onPress: function () { return _onPress(date.toDate()); }, disabled: onPressDateHeader === undefined, key: date.toString() },
+                        React__namespace.createElement(reactNative.View, { style: [u['justify-between'], {paddingBottom: 6}] },
+                        React__namespace.createElement(reactNative.Text, { style: [guideTextStyle, _isToday && u['text-primary'], { borderColor: 'red'}] }, date.format('dddd')),
+                        React__namespace.createElement(reactNative.View, { style: _isToday
+                                ? [
+                                    u['h-36'],
+                                    u['w-36'],
+                                    u['bg-primary'],
+                                    u['pb-6'],
+                                    u['rounded-full'],
+                                    u['items-center'],
+                                    u['justify-center'],
+                                    u['self-center'],
+                                    u['z-20'],
+                                ]
+                                : [u['mb-6']] },
+                            React__namespace.createElement(reactNative.Text, { style: [
+                                    u['text-gray-800'],
+                                    u['text-2xl'],
+                                    u['text-center'],
+                                    _isToday && u['text-white'],
+                                    reactNative.Platform.OS === 'web' && _isToday && u['mt-6'],
+                                ] }, date.format('D')))),
+
+                ),
+                    (React__namespace.createElement(reactNative.View, { style: [{width: 50}, {flex: 1}, {flexDirection: 'column'}], key: "key" },
+                        React__namespace.createElement(reactNative.Text, { style: {color: 'black', flex: 1} }, "Hi")))
+
+                ));
+        }),
+        )
+    )
 }
 var CalendarHeader = typedMemo(_CalendarHeader);
 

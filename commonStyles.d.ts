@@ -24,6 +24,9 @@ export declare const commonStyles: {
     };
 };
 export declare const u: {
+    'flex-end': {
+        alignContent: "flex-end"
+    };
     flex: {
         flexDirection: "row";
     };
@@ -45,6 +48,8 @@ export declare const u: {
     'justify-center': {
         justifyContent: "center";
     };
+    'justify-end': {
+        justifyContent: "flex-end";
     'items-center': {
         alignItems: "center";
     };
