@@ -728,56 +728,56 @@ function _CalendarBodyForMonthView(_a) {
 var CalendarBodyForMonthView = typedMemo(_CalendarBodyForMonthView);
 
 function _CalendarHeader(_a) {
-    var dateRange = _a.dateRange, cellHeight = _a.cellHeight, _b = _a.style, style = _b === void 0 ? {} : _b, allDayEvents = _a.allDayEvents, isRTL = _a.isRTL, onPressDateHeader = _a.onPressDateHeader, mapLink = _a.mapLink;
+    var dateRange = _a.dateRange, cellHeight = _a.cellHeight, _b = _a.style, style = _b === void 0 ? {} : _b, allDayEvents = _a.allDayEvents, isRTL = _a.isRTL, onPressDateHeader = _a.onPressDateHeader, mapLink = _a.mapLink, renderMap = _a.renderMap;
     var _onPress = React__namespace.useCallback(function (date) {
         onPressDateHeader && onPressDateHeader(date);
     }, [onPressDateHeader]);
     return (React__namespace.createElement(reactNative.View, { style: [
-                u['border-b'],
-                u['border-gray-100'],
-                u['bg-white'],
-                isRTL ? u['flex-row-reverse'] : u['flex-row'],
-                style
-            ] },
-        React__namespace.createElement(reactNative.View, { style: [{maxWidth: 51}, {flexDirection: 'column', flex: 1}, u['border-r'], u['border-gray-100']] }),
-        dateRange.map(function (date) {
-            var _isToday = isToday(date);
-            return (
-                React__namespace.createElement(reactNative.View, { style: [u['bg-white'], u['pt-2'], u['flex-row'], { flex: 1 }]},
-                    React__namespace.createElement(reactNative.TouchableOpacity, { style: [u['bg-white'], u['pt-2'], u['flex-row'], {justifyContent: 'flex-end'}, { width: '50%', marginTop: -3}], onPress: function () { return _onPress(date.toDate()); }, disabled: onPressDateHeader === undefined, key: date.toString() },
-                        React__namespace.createElement(reactNative.View, { style: [u['justify-between'], {paddingBottom: 6}] },
-                        React__namespace.createElement(reactNative.Text, { style: [guideTextStyle, _isToday && u['text-primary'], {fontWeight: 'bold'}] }, date.format('dddd')),
-                        React__namespace.createElement(reactNative.View, { style: _isToday
-                                ? [
-                                    u['h-36'],
-                                    u['w-36'],
-                                    u['bg-primary'],
-                                    u['pb-6'],
-                                    u['rounded-full'],
-                                    u['items-center'],
-                                    u['justify-center'],
-                                    u['self-center'],
-                                    u['z-20'],
-                                ]
-                                : [u['mb-6']] },
-                            React__namespace.createElement(reactNative.Text, { style: [
-                                    u['text-gray-800'],
-                                    u['text-2xl'],
-                                    u['text-center'],
-                                    _isToday && u['text-white'],
-                                    reactNative.Platform.OS === 'web' && _isToday && u['mt-6'],
-                                ] }, date.format('D')))),
+                    u['border-b'],
+                    u['border-gray-100'],
+                    u['bg-white'],
+                    isRTL ? u['flex-row-reverse'] : u['flex-row'],
+                    style
+                ] },
+            React__namespace.createElement(reactNative.View, { style: [{maxWidth: 51}, {flexDirection: 'column', flex: 1}, u['border-r'], u['border-gray-100']] }),
+            dateRange.map(function (date) {
+                var _isToday = isToday(date);
+                return (
+                    React__namespace.createElement(reactNative.View, { style: [u['bg-white'], u['pt-2'], u['flex-row'], { flex: 1 }]},
+                        React__namespace.createElement(reactNative.TouchableOpacity, { style: [u['bg-white'], u['pt-2'], u['flex-row'], {justifyContent: 'flex-end'}, { width: '50%', marginTop: -3}], onPress: function () { return _onPress(date.toDate()); }, disabled: onPressDateHeader === undefined, key: date.toString() },
+                            React__namespace.createElement(reactNative.View, { style: [u['justify-between'], {paddingBottom: 6}] },
+                                React__namespace.createElement(reactNative.Text, { style: [guideTextStyle, _isToday && u['text-primary'], {fontWeight: 'bold'}] }, date.format('dddd')),
+                                React__namespace.createElement(reactNative.View, { style: _isToday
+                                        ? [
+                                            u['h-36'],
+                                            u['w-36'],
+                                            u['bg-primary'],
+                                            u['pb-6'],
+                                            u['rounded-full'],
+                                            u['items-center'],
+                                            u['justify-center'],
+                                            u['self-center'],
+                                            u['z-20'],
+                                        ]
+                                        : [u['mb-6']] },
+                                    React__namespace.createElement(reactNative.Text, { style: [
+                                            u['text-gray-800'],
+                                            u['text-2xl'],
+                                            u['text-center'],
+                                            _isToday && u['text-white'],
+                                            reactNative.Platform.OS === 'web' && _isToday && u['mt-6'],
+                                        ] }, date.format('D')))),
 
-                ),
-                    (React__namespace.createElement(reactNative.View, { style: [{marginRight: 7,  marginBottom: 7}, {flex: 1}, {flexDirection: 'column'}], key: "key" },
-                        <TouchableOpacity key={'somekey1'} style={[u['bg-primary'], { width: 55, height: 55, justifyContent: 'center', borderRadius: 5, alignSelf: 'flex-end', padding: 3 }]} onPress={() =>  Linking.openURL(_a.mapLink)} >
-                            <View key={'somekey2'} style={{height: 34}}>
-                                <FontAwesome5 key={'icon'} name={'map-marked-alt'} style={{fontSize: 32, flex: 1, flexDirection: 'column', textAlign: 'center', color: 'white'}}/>
-                            </View>
-                        </TouchableOpacity>))
+                        ),
+                        (React__namespace.createElement(reactNative.View, { style: [{marginRight: 7,  marginBottom: 7}, {flex: 1}, {flexDirection: 'column'}], key: "key" },
+                            renderMap && <TouchableOpacity key={'somekey1'} style={[u['bg-primary'], { width: 55, height: 55, justifyContent: 'center', borderRadius: 5, alignSelf: 'flex-end', padding: 2}]} onPress={() =>  Linking.openURL(_a.mapLink)} >
+                                <View key={'somekey2'} style={{height: 34}}>
+                                    <FontAwesome5 key={'icon'} name={'map-marked-alt'} style={{fontSize: 32, flex: 1, flexDirection: 'column', textAlign: 'center', color: 'white'}}/>
+                                </View>
+                            </TouchableOpacity>))
 
-                ));
-        }),
+                    ));
+            }),
         )
     )
 }
@@ -800,7 +800,7 @@ function _CalendarHeaderForMonthView(_a) {
 var CalendarHeaderForMonthView = typedMemo(_CalendarHeaderForMonthView);
 
 function _Calendar(_a) {
-    var events = _a.events, mapLink = _a.mapLink, height = _a.height, _b = _a.ampm, ampm = _b === void 0 ? false : _b, date = _a.date, eventCellStyle = _a.eventCellStyle, _c = _a.locale, locale = _c === void 0 ? 'en' : _c, _d = _a.hideNowIndicator, hideNowIndicator = _d === void 0 ? false : _d, _e = _a.mode, mode = _e === void 0 ? 'week' : _e, overlapOffset = _a.overlapOffset, _f = _a.scrollOffsetMinutes, scrollOffsetMinutes = _f === void 0 ? 0 : _f, _g = _a.showTime, showTime = _g === void 0 ? true : _g, _h = _a.style, style = _h === void 0 ? {} : _h, _j = _a.swipeEnabled, swipeEnabled = _j === void 0 ? true : _j, _k = _a.weekStartsOn, weekStartsOn = _k === void 0 ? 0 : _k, _l = _a.isRTL, isRTL = _l === void 0 ? false : _l, onChangeDate = _a.onChangeDate, onPressCell = _a.onPressCell, onPressDateHeader = _a.onPressDateHeader, onPressMapHeader = _a.onPressMapHeader, onPressEvent = _a.onPressEvent, renderEvent = _a.renderEvent, _m = _a.weekEndsOn, weekEndsOn = _m === void 0 ? 6 : _m, _o = _a.maxVisibleEventCount, maxVisibleEventCount = _o === void 0 ? 3 : _o;
+    var events = _a.events, mapLink = _a.mapLink, renderMap = _a.renderMap, height = _a.height, _b = _a.ampm, ampm = _b === void 0 ? false : _b, date = _a.date, eventCellStyle = _a.eventCellStyle, _c = _a.locale, locale = _c === void 0 ? 'en' : _c, _d = _a.hideNowIndicator, hideNowIndicator = _d === void 0 ? false : _d, _e = _a.mode, mode = _e === void 0 ? 'week' : _e, overlapOffset = _a.overlapOffset, _f = _a.scrollOffsetMinutes, scrollOffsetMinutes = _f === void 0 ? 0 : _f, _g = _a.showTime, showTime = _g === void 0 ? true : _g, _h = _a.style, style = _h === void 0 ? {} : _h, _j = _a.swipeEnabled, swipeEnabled = _j === void 0 ? true : _j, _k = _a.weekStartsOn, weekStartsOn = _k === void 0 ? 0 : _k, _l = _a.isRTL, isRTL = _l === void 0 ? false : _l, onChangeDate = _a.onChangeDate, onPressCell = _a.onPressCell, onPressDateHeader = _a.onPressDateHeader, onPressMapHeader = _a.onPressMapHeader, onPressEvent = _a.onPressEvent, renderEvent = _a.renderEvent, _m = _a.weekEndsOn, weekEndsOn = _m === void 0 ? 6 : _m, _o = _a.maxVisibleEventCount, maxVisibleEventCount = _o === void 0 ? 3 : _o;
     var _p = React__default['default'].useState(dayjs__default['default'](date)), targetDate = _p[0], setTargetDate = _p[1];
     React__default['default'].useEffect(function () {
         if (date) {
@@ -848,7 +848,8 @@ function _Calendar(_a) {
         style: style,
         isRTL: isRTL,
         mode: mode,
-        mapLink: mapLink
+        mapLink: mapLink,
+        renderMap: renderMap
     };
     if (mode === 'month') {
         return (React__default['default'].createElement(React__default['default'].Fragment, null,
