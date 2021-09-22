@@ -621,7 +621,7 @@ function _CalendarBody(_a) {
     var _onPressCell = React__namespace.useCallback(function (date) {
         onPressCell && onPressCell(date.toDate());
     }, [onPressCell]);
-    var _renderMappedEvent = function (event) { return (React__namespace.createElement(CalendarEvent, { key: "" + event.start + event.title, event: event, onPressEvent: onPressEvent, eventCellStyle: eventCellStyle, showTime: showTime, eventCount: getCountOfEventsAtEvent(event, events), eventOrder: getOrderOfEvent(event, events), overlapOffset: overlapOffset, renderEvent: renderEvent })); };
+    var _renderMappedEvent = function (event) { return (React__namespace.createElement(CalendarEvent, { key: event.event_id, event: event, onPressEvent: onPressEvent, eventCellStyle: eventCellStyle, showTime: showTime, eventCount: getCountOfEventsAtEvent(event, events), eventOrder: getOrderOfEvent(event, events), overlapOffset: overlapOffset, renderEvent: renderEvent })); };
     return (React__namespace.createElement(reactNative.ScrollView, __assign({ style: [
                 {
                     height: containerHeight - cellHeight * 3,
@@ -743,8 +743,8 @@ function _CalendarHeader(_a) {
             dateRange.map(function (date) {
                 var _isToday = isToday(date);
                 return (
-                    React__namespace.createElement(reactNative.View, { style: [u['bg-white'], u['pt-2'], u['flex-row'], { flex: 1 }]},
-                        React__namespace.createElement(reactNative.TouchableOpacity, { style: [u['bg-white'], u['pt-2'], u['flex-row'], {justifyContent: 'flex-end'}, { width: '50%', marginTop: -3}], onPress: function () { return _onPress(date.toDate()); }, disabled: onPressDateHeader === undefined, key: date.toString() },
+                    React__namespace.createElement(reactNative.View, { style: [u['bg-white'], u['pt-2'], u['flex-row'], { flex: 1, marginLeft: 25 }], key: Math.random().toString()},
+                        React__namespace.createElement(reactNative.TouchableOpacity, { style: [u['bg-white'], u['pt-2'], u['flex-row'], {justifyContent: 'flex-end'}, { width: '50%', marginTop: -3}], key: "rand", onPress: function () { return _onPress(date.toDate()); }, disabled: onPressDateHeader === undefined, key: date.toString() },
                             React__namespace.createElement(reactNative.View, { style: [u['justify-between'], {paddingBottom: 6}] },
                                 React__namespace.createElement(reactNative.Text, { style: [guideTextStyle, _isToday && u['text-primary'], {fontWeight: 'bold'}] }, date.format('dddd')),
                                 React__namespace.createElement(reactNative.View, { style: _isToday
@@ -769,17 +769,23 @@ function _CalendarHeader(_a) {
                                         ] }, date.format('D')))),
 
                         ),
-                        (React__namespace.createElement(reactNative.View, { style: [{marginRight: 7,  marginBottom: 7}, {flex: 1}, {flexDirection: 'column'}], key: "key" },
-                            renderMap && <TouchableOpacity key={'somekey1'} style={[u['bg-primary'], { width: 55, height: 55, justifyContent: 'center', borderRadius: 5, alignSelf: 'flex-end', padding: 2}]} onPress={() =>  Linking.openURL(_a.mapLink)} >
-                                <View key={'somekey2'} style={{height: 34}}>
-                                    <FontAwesome5 key={'icon'} name={'map-marked-alt'} style={{fontSize: 32, flex: 1, flexDirection: 'column', textAlign: 'center', color: 'white'}}/>
-                                </View>
-                            </TouchableOpacity>))
-
-                    ));
-            }),
-        )
-    )
+                        (React__namespace.createElement(reactNative.View, { style: [{marginRight: 7,  marginBottom: 7}, {flex: 1}, {flexDirection: 'column'}]},
+                            renderMap &&
+                            (React__namespace.createElement(reactNative.TouchableOpacity, { style: [u['bg-primary'], {width: 55, height: 55, justifyContent: 'center', borderRadius: 5, alignSelf: 'flex-end', padding: 2}], key: "key2", onPress: function () {return Linking.openURL(_a.mapLink)}},
+                                (React__namespace.createElement(reactNative.View, { style: [{height: 34}]},
+                                    (React__namespace.createElement(FontAwesome5, { style: [{fontSize: 32, flex: 1, flexDirection: 'column', textAlign: 'center', color: 'white'}], name: 'map-marked-alt'},
+                            // <TouchableOpacity key={'somekey1'} style={[u['bg-primary'], { width: 55, height: 55, justifyContent: 'center', borderRadius: 5, alignSelf: 'flex-end', padding: 2}]} onPress={() =>  Linking.openURL(_a.mapLink)} >
+                            //     <View key={'somekey2'} style={{height: 34}}>
+                            //         <FontAwesome5 key={'icon'} name={'map-marked-alt'} style={{fontSize: 32, flex: 1, flexDirection: 'column', textAlign: 'center', color: 'white'}}/>
+                            //     </View>
+                            // </TouchableOpacity>
+                                    ))
+                                ))
+                            ))
+                        ))
+                    ))
+                })
+            ))
 }
 var CalendarHeader = typedMemo(_CalendarHeader);
 
