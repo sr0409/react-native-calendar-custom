@@ -291,12 +291,6 @@ function getDatesInNextOneDay(date, locale) {
     return days;
 }
 var hours = [
-    0,
-    1,
-    2,
-    3,
-    4,
-    5,
     6,
     7,
     8,
@@ -315,10 +309,19 @@ var hours = [
     21,
     22,
     23,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
 ];
 function formatHour(hour, ampm) {
     if (ampm === void 0) { ampm = false; }
     if (ampm) {
+        if (hour > 0 && hour < 6){
+            return ""
+        }
         if (hour === 0) {
             return '';
         }
@@ -353,7 +356,7 @@ function isToday(date) {
     return today.isSame(date, 'day');
 }
 function getRelativeTopInDay(date) {
-    return (100 * (date.hour() * 60 + date.minute())) / DAY_MINUTES;
+    return (100 * ((date.hour() - 6) * 60 + date.minute())) / DAY_MINUTES;
 }
 function modeToNum(mode, current) {
     if (mode === 'month') {
