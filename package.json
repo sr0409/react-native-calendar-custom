@@ -1,6 +1,6 @@
 {
   "name": "react-native-calendar-custom",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "index.js",
   "jsnext:main": "index.es.js",
   "module": "index.es.js",
